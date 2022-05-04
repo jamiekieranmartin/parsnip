@@ -1,4 +1,4 @@
-# parsnip - v0.0.1
+# parsnip
 
 Parsnip is a minimal, powerful, text to JSON converter.
 
