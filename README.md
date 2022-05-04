@@ -1,6 +1,6 @@
 # parsnip
 
-Parsnip is a minimal, powerful, text to JSON converter.
+Parsnip is a minimal text to JSON converter.
 
 By default, parsnip converts input text to JSON based on a given expression
 
