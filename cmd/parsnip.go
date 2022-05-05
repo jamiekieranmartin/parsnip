@@ -11,7 +11,7 @@ import (
 	"github.com/jamiekieranmartin/parsnip"
 )
 
-const cliVersion = "0.0.3"
+const cliVersion = "0.0.4"
 
 const helpMessage = `
 Parsnip is a minimal text to JSON converter.
@@ -65,18 +65,21 @@ func main() {
 	parsed, err := parsnip.Parse(args[0], args[1])
 	if err != nil {
 		fmt.Printf("error: %s\n", err.Error())
+		return
 	}
 
 	// translate to json
 	jsoned, err := json.MarshalIndent(parsed, "", "	")
 	if err != nil {
 		fmt.Printf("error: %s\n", err.Error())
+		return
 	}
 
 	// get file path
 	file, err := filepath.Abs(*out)
 	if err != nil {
 		fmt.Printf("error: %s\n", err.Error())
+		return
 	}
 
 	if file != "" {
@@ -84,11 +87,13 @@ func main() {
 		err = ioutil.WriteFile(file, jsoned, os.ModePerm)
 		if err != nil {
 			fmt.Printf("error: %s", err.Error())
+			return
 		}
 
 		fmt.Printf("written to %s\n", file)
 	} else {
 		// print to stdout
 		fmt.Println(string(jsoned))
+		return
 	}
 }
