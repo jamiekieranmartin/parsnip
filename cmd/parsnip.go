@@ -11,7 +11,7 @@ import (
 	"github.com/jamiekieranmartin/parsnip"
 )
 
-const cliVersion = "0.0.4"
+const cliVersion = "0.0.5"
 
 const helpMessage = `
 Parsnip is a minimal text to JSON converter.
@@ -29,6 +29,7 @@ Named groups can be used to map key-value pairs.
 
 Write to file
 	parsnip -out "./result.json" "(?P<first>\S+) (?P<last>\S+)" "Jamie Martin"
+
 `
 
 func main() {
