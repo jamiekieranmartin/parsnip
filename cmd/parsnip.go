@@ -11,7 +11,7 @@ import (
 	"github.com/jamiekieranmartin/parsnip"
 )
 
-const cliVersion = "0.0.5"
+const cliVersion = "0.0.6"
 
 const helpMessage = `
 Parsnip is a minimal text to JSON converter.
@@ -22,7 +22,7 @@ By default, parsnip converts input text to JSON based on a given expression
 	
 	{"1":"Jamie","2":"Martin"}
 
-Named groups can be used to map key-value pairs.
+Named groups can be used to map key-value pairs
 	parsnip "(?P<first>\S+) (?P<last>\S+)" "Jamie Martin"
 	
 	{"first":"Jamie","last":"Martin"}
@@ -65,21 +65,21 @@ func main() {
 	// parse input given expression
 	parsed, err := parsnip.Parse(args[0], args[1])
 	if err != nil {
-		fmt.Printf("error: %s\n", err.Error())
+		fmt.Println(err)
 		return
 	}
 
 	// translate to json
 	jsoned, err := json.MarshalIndent(parsed, "", "	")
 	if err != nil {
-		fmt.Printf("error: %s\n", err.Error())
+		fmt.Println(err)
 		return
 	}
 
 	// get file path
 	file, err := filepath.Abs(*out)
 	if err != nil {
-		fmt.Printf("error: %s\n", err.Error())
+		fmt.Println(err)
 		return
 	}
 
@@ -87,14 +87,13 @@ func main() {
 		// write to file
 		err = ioutil.WriteFile(file, jsoned, os.ModePerm)
 		if err != nil {
-			fmt.Printf("error: %s", err.Error())
+			fmt.Println(err)
 			return
 		}
 
 		fmt.Printf("written to %s\n", file)
-	} else {
-		// print to stdout
-		fmt.Println(string(jsoned))
 		return
 	}
+
+	fmt.Println(string(jsoned))
 }
