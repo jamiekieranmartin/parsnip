@@ -11,23 +11,23 @@ import (
 	"github.com/jamiekieranmartin/parsnip"
 )
 
-const cliVersion = "0.0.6"
+const cliVersion = "0.0.7"
 
 const helpMessage = `
 Parsnip is a minimal text to JSON converter.
 	parsnip v%s
 
-By default, parsnip converts input text to JSON based on a given expression
+By default, parsnip converts input text to JSON based on a given expression.
 	parsnip "(\S+) (\S+)" "Jamie Martin"
 	
 	{"1":"Jamie","2":"Martin"}
 
-Named groups can be used to map key-value pairs
+Named groups can be used to map key-value pairs.
 	parsnip "(?P<first>\S+) (?P<last>\S+)" "Jamie Martin"
 	
 	{"first":"Jamie","last":"Martin"}
 
-Write to file
+Write to file.
 	parsnip -out "./result.json" "(?P<first>\S+) (?P<last>\S+)" "Jamie Martin"
 
 `
