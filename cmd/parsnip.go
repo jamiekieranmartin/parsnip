@@ -11,10 +11,10 @@ import (
 	"github.com/jamiekieranmartin/parsnip"
 )
 
-const cliVersion = "0.0.7"
+const cliVersion = "0.0.8"
 
 const helpMessage = `
-Parsnip is a minimal text to JSON converter.
+Parsnip is a minimal text to key-value converter.
 	parsnip v%s
 
 By default, parsnip converts input text to JSON based on a given expression.

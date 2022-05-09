@@ -1,6 +1,6 @@
 # parsnip
 
-Parsnip is a minimal text to JSON converter.
+Parsnip is a minimal text to key-value converter.
 
 ## Install
 
